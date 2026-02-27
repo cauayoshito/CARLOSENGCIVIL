@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Vistorias, Laudos Técnicos e Perícias com rigor técnico e documentação clara. Atendimento em Salvador e região."/>
+  <title>Queiroz Engenharia</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#8e3a1e",
+            secondary: "#1f3142",
+            "background-light": "#F6EFE7",
+            "background-dark": "#201612",
+            "text-main": "#4A4A4A",
+            "card-border": "#E0E0E0",
+          },
+          fontFamily: {
+            display: ["Manrope", "sans-serif"],
+            serif: ["Playfair Display", "serif"],
+            body: ["Montserrat", "sans-serif"],
+          },
+          borderRadius: { card: "16px" },
+          boxShadow: { subtle: "0 2px 8px rgba(0,0,0,0.04)" },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="./assets/css/extras.css"/>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-200 font-display selection:bg-primary/20">
+
+  <!-- Toast -->
+  <div data-toast class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] opacity-0 pointer-events-none translate-y-2 transition-all duration-300">
+    <div class="bg-secondary text-white px-4 py-2 rounded-full shadow-lg text-sm">
+      <span data-toast-text>Copiado</span>
+    </div>
+  </div>
+
+  <!-- Mobile backdrop -->
+  <div data-mobile-backdrop class="hidden fixed inset-0 bg-black/40 z-[60]"></div>
+
+  <header data-header class="fixed top-0 left-0 right-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-primary/10 transition-all duration-300 h-20">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-full">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+          <h2 class="text-secondary dark:text-white text-xl font-bold tracking-tight font-serif">Queiroz Engenharia</h2>
+        </div>
+
+        <nav class="hidden md:flex items-center gap-8">
+          <a data-nav-link class="text-text-main hover:text-primary text-sm font-medium transition-colors" href="#servicos">Serviços</a>
+          <a data-nav-link class="text-text-main hover:text-primary text-sm font-medium transition-colors" href="#sobre">Sobre</a>
+          <a data-nav-link class="text-text-main hover:text-primary text-sm font-medium transition-colors" href="#como-funciona">Como funciona</a>
+          <a data-nav-link class="text-text-main hover:text-primary text-sm font-medium transition-colors" href="#faq">FAQ</a>
+          <a data-nav-link class="text-text-main hover:text-primary text-sm font-medium transition-colors" href="#contato">Contato</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <button data-wa class="bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-lg text-sm font-bold transition-all shadow-sm hover:shadow-md flex items-center gap-2">
+            <span class="material-symbols-outlined text-[18px]">chat</span>
+            <span class="hidden sm:inline">Chamar no WhatsApp</span>
+          </button>
+
+          <button data-menu-btn class="md:hidden p-2 text-text-main hover:text-primary" aria-label="Abrir menu" aria-expanded="false">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <aside data-mobile-nav class="fixed right-0 top-0 h-full w-[86vw] max-w-[360px] z-[70] bg-background-light dark:bg-background-dark border-l border-primary/10 shadow-2xl translate-x-full transition-transform duration-300">
+    <div class="p-6 flex items-center justify-between border-b border-primary/10">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary">architecture</span>
+        <span class="font-serif font-bold text-secondary dark:text-white">Menu</span>
+      </div>
+      <button class="p-2 hover:text-primary" data-menu-btn aria-label="Fechar menu">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <nav class="p-6 flex flex-col gap-4">
+      <a class="text-text-main hover:text-primary font-medium" href="#servicos">Serviços</a>
+      <a class="text-text-main hover:text-primary font-medium" href="#sobre">Sobre</a>
+      <a class="text-text-main hover:text-primary font-medium" href="#como-funciona">Como funciona</a>
+      <a class="text-text-main hover:text-primary font-medium" href="#faq">FAQ</a>
+      <a class="text-text-main hover:text-primary font-medium" href="#contato">Contato</a>
+
+      <div class="mt-4 pt-4 border-t border-primary/10">
+        <button data-wa class="w-full bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg font-bold flex items-center justify-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">chat</span>
+          Falar agora
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="pt-20">
+    <!-- HERO with background image -->
+    <section class="relative min-h-[calc(100vh-80px)] flex items-center">
+      <div class="absolute inset-0">
+        <img src="./assets/img/hero-bg.jpg" alt="Fachada corporativa com placa Queiroz Engenharia" class="w-full h-full object-cover"/>
+        <div class="absolute inset-0 hero-overlay"></div>
+      </div>
+
+      <div class="relative w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="max-w-2xl">
+          <span class="text-primary text-sm font-bold tracking-widest uppercase">Excelência em Engenharia</span>
+          <h1 class="mt-4 text-secondary dark:text-white text-4xl sm:text-5xl lg:text-6xl font-serif font-bold leading-[1.05]">
+            Rigor técnico que transforma dúvida em decisão segura.
+          </h1>
+          <p class="mt-5 text-lg text-text-main/80 dark:text-gray-300 font-light">
+            Vistorias, laudos técnicos e perícias com documentação clara e postura imparcial. Atendimento em Salvador e região.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <button data-wa class="bg-primary hover:bg-primary/90 text-white px-8 py-3.5 rounded-lg text-base font-bold transition-all shadow-lg hover:shadow-primary/20 flex items-center gap-2">
+              <span>Solicitar orçamento no WhatsApp</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+            <a class="bg-transparent border border-secondary text-secondary hover:bg-secondary hover:text-white dark:border-white dark:text-white px-8 py-3.5 rounded-lg text-base font-bold transition-all flex items-center justify-center" href="#servicos">
+              Conheça nossos serviços
+            </a>
+          </div>
+
+          <div class="mt-10 pt-8 border-t border-primary/10 flex flex-wrap gap-6 sm:gap-12">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">verified</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs text-text-main/60 uppercase tracking-wide">Experiência</span>
+                <span class="font-bold text-secondary dark:text-white">Atuação especializada</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">description</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs text-text-main/60 uppercase tracking-wide">Entrega</span>
+                <span class="font-bold text-secondary dark:text-white">Documentação clara</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined">speed</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs text-text-main/60 uppercase tracking-wide">Agilidade</span>
+                <span class="font-bold text-secondary dark:text-white">Atendimento rápido</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-3 text-sm">
+            <button data-copy="(71) 9 9642-1411" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-white/10 border border-primary/10 hover:border-primary/30 transition">
+              <span class="material-symbols-outlined text-[18px] text-primary">content_copy</span> Copiar WhatsApp
+            </button>
+            <button data-copy="queiroz.carloslm@icloud.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/70 dark:bg-white/10 border border-primary/10 hover:border-primary/30 transition">
+              <span class="material-symbols-outlined text-[18px] text-primary">content_copy</span> Copiar e-mail
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="py-24 bg-white dark:bg-zinc-900 border-t border-primary/5">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col items-center mb-16 text-center">
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-secondary dark:text-white mb-4">Nossos Serviços</h2>
+          <p class="text-text-main/70 max-w-2xl">Soluções completas em engenharia diagnóstica para garantir a segurança e valorização do seu imóvel.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="py-24 bg-secondary dark:bg-black text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 30px 30px;"></div>
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="mb-16">
+          <span class="text-primary font-bold tracking-widest text-sm uppercase block mb-2">Processo Simples</span>
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Como funciona nosso trabalho</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="py-24 bg-background-light dark:bg-background-dark">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <div class="w-full lg:w-1/2">
+            <div class="relative">
+              <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-primary"></div>
+              <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-primary"></div>
+              <img alt="Engenheiro responsável em ambiente de trabalho moderno" class="w-full h-[500px] object-cover rounded-sm shadow-2xl filter grayscale hover:grayscale-0 transition-all duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoNCjLPlhnwHjLCTbAsCZ8ASb79be-GU2isnq6kKZh15luK4bEEuc36epqsPsvJNHfidnY83VVWFnjNHidyJcpbWV1uXNJ9etUwreuEy7MsG1HUX2drnLhGH-5mxltCLhluBJXuDgsW3HAkzVvMtWAt3RnTz0y9tiSijYjcFAsZVZRyV5KbH3cnc72QysH0Ar5HDn3IerROiw_bHWM4HWOrUhFPguNAAYnt6cUk6nHk51c5GR9YJQF69d8zKVVgMVmXomfLKYzMw"/>
+            </div>
+          </div>
+
+          <div class="w-full lg:w-1/2 space-y-8">
+            <div>
+              <span class="text-primary font-bold tracking-widest text-sm uppercase block mb-2">Quem Somos</span>
+              <h2 class="text-3xl sm:text-4xl font-serif font-bold text-secondary dark:text-white mb-6">
+                Autoridade técnica. Clareza. Imparcialidade.
+              </h2>
+              <div class="space-y-4 text-text-main/80 text-lg leading-relaxed">
+                <p>
+                  Queiroz Engenharia atua com avaliações, vistorias e perícias com rigor técnico, documentação clara e postura imparcial. O objetivo é transformar uma situação técnica em uma decisão segura, com laudos objetivos e registro detalhado.
+                </p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-4 pt-4">
+              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-xl">description</span><span>Relatórios objetivos e bem estruturados</span></div>
+              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-xl">photo_camera</span><span>Registro fotográfico e organização técnica</span></div>
+              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-xl">chat</span><span>Comunicação clara (sem enrolação)</span></div>
+              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-xl">balance</span><span>Postura imparcial e criteriosa</span></div>
+              <div class="flex items-center gap-3"><span class="material-symbols-outlined text-primary text-xl">speed</span><span>Agilidade com responsabilidade</span></div>
+            </div>
+
+            <button data-wa class="w-fit bg-primary hover:bg-primary/90 text-white px-7 py-3 rounded-lg font-bold flex items-center gap-2 shadow-lg">
+              <span class="material-symbols-outlined text-[18px]">chat</span>
+              Falar com o engenheiro
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-white dark:bg-zinc-900">
+      <div class="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <span class="text-primary font-bold tracking-widest text-sm uppercase block mb-2">Dúvidas Comuns</span>
+          <h2 class="text-3xl font-serif font-bold text-secondary dark:text-white">Perguntas Frequentes</h2>
+        </div>
+
+        <div class="space-y-4">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-primary text-white">
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-serif font-bold mb-6">Evite prejuízos com um laudo técnico bem feito.</h2>
+        <p class="mb-8 text-white/80 max-w-2xl mx-auto">Fale agora com o engenheiro responsável e receba orientação técnica especializada.</p>
+        <button data-wa class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors shadow-xl flex items-center gap-2 mx-auto">
+          <span class="material-symbols-outlined">chat</span>
+          Falar com Engenheiro
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato" class="bg-secondary dark:bg-black text-white py-16 border-t border-white/10">
+    <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div class="space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-3xl">architecture</span>
+            <h2 class="text-xl font-bold font-serif">Queiroz Engenharia</h2>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">
+            Soluções em engenharia diagnóstica com rigor técnico, ética e compromisso com a verdade.
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="font-bold text-lg">Contato</h3>
+          <div class="space-y-2 text-gray-400 text-sm">
+            <a data-wa class="flex items-center gap-3 hover:text-white transition-colors" href="#">
+              <span class="material-symbols-outlined text-primary text-lg">call</span>
+              (71) 9 9642-1411
+            </a>
+            <a data-email-link class="flex items-center gap-3 hover:text-white transition-colors" href="#">
+              <span class="material-symbols-outlined text-primary text-lg">mail</span>
+              queiroz.carloslm@icloud.com
+            </a>
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-lg">location_on</span>
+              Salvador, BA
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="font-bold text-lg">Menu</h3>
+          <div class="flex flex-col gap-2 text-gray-400 text-sm">
+            <a class="hover:text-primary transition-colors" href="#servicos">Serviços</a>
+            <a class="hover:text-primary transition-colors" href="#sobre">Sobre Nós</a>
+            <a class="hover:text-primary transition-colors" href="#como-funciona">Processo</a>
+            <a class="hover:text-primary transition-colors" href="#faq">FAQ</a>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="font-bold text-lg">Siga-nos</h3>
+          <div class="flex gap-4 mb-4">
+            <a data-ig-link class="w-10 h-10 rounded bg-white/5 flex items-center justify-center hover:bg-primary transition-colors" href="#"><span class="text-xs font-bold">IG</span></a>
+            <a class="w-10 h-10 rounded bg-white/5 flex items-center justify-center opacity-50 cursor-not-allowed" href="#" title="LinkedIn (opcional)"> <span class="text-xs font-bold">IN</span></a>
+          </div>
+
+          <div class="bg-white p-2 rounded w-fit">
+            <img src="./assets/img/qr-instagram.png" alt="QR Code do Instagram Queiroz Engenharia" class="w-24 h-24"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+        <p>© 2026 Queiroz Engenharia. Todos os direitos reservados.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-white" href="#">Termos de Uso</a>
+          <a class="hover:text-white" href="#">Política de Privacidade</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/main.js" defer></script>
+</body>
+</html>

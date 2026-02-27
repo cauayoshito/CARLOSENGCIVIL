@@ -1,0 +1,16 @@
+/* small polish over tailwind */
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(246,239,231,0.96) 0%, rgba(246,239,231,0.88) 42%, rgba(246,239,231,0.40) 72%, rgba(246,239,231,0.12) 100%),
+    linear-gradient(0deg, rgba(31,49,66,0.14) 0%, rgba(31,49,66,0.00) 45%, rgba(31,49,66,0.06) 100%);
+}
+.dark .hero-overlay{
+  background:
+    linear-gradient(90deg, rgba(32,22,18,0.94) 0%, rgba(32,22,18,0.82) 42%, rgba(32,22,18,0.34) 72%, rgba(32,22,18,0.12) 100%),
+    linear-gradient(0deg, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.00) 50%, rgba(0,0,0,0.10) 100%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  * { transition: none !important; animation: none !important; }
+}
