@@ -1,5 +1,5 @@
 (() => {
-  const WA_NUMBER = "557196421411";
+  const WA_NUMBER = "5571996951411";
   const IG_URL = "https://www.instagram.com/queiroz.engcivil/";
   const EMAIL = "queiroz.carloslm@icloud.com";
 
